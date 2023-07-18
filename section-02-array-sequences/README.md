@@ -4,7 +4,7 @@
 - Tuple: (1,2,3)
 - String: '123'
 
-All sequences support indexing
+All sequences support indexing (i.e., my_list[0])
 
 # Low Level Arrays
 ### How computers store information:
@@ -53,3 +53,18 @@ All sequences support indexing
     * this computes a new integer
 - ```primes.extend(extras)```
     * adds references to a list
+
+# Dynamic Array
+- List instance has greater capacity than current length
+- Space runs out if elements keep getting appended
+
+## Implementation
+- provide means to grow the array A that stores the elements of a list
+- can not grow array A since its capacity is fixed
+- if element is appended to list when underlying array is full:
+
+1. allocate new array B with larger capacity
+2. set B[i] = A[i], for i = 0, ... , n-1 -> where n denotes current number of items
+3. set A = B, henceforth, use B as the array supporting the list
+4. insert the new element in the new array
+
