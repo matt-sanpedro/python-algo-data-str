@@ -82,15 +82,16 @@ def pair_sum2(arr,k):
     output = {(1,3), (2,2)}
     '''
     for num in arr:
-        # print('ON num: {}'.format(num))
+        print('ON num: {}'.format(num))
         target = k - num
 
+        # initial condition: seen will be populated with first number ALWAYS
         if target not in seen:
-            # print('Adding to seen: {}'.format(num))
+            print('Adding to seen: {}'.format(num))
             seen.add(num)
         else:
             pair = (min(num,target), max(num,target))
-            # print('Adding to output: {}'.format(pair))
+            print('Adding to output: {}'.format(pair))
             output.add(pair)
     
     print(output)
