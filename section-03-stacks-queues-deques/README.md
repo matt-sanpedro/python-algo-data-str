@@ -22,5 +22,10 @@
 - dequeue: removing the front item from the queue
 
 # Deque Overview
-- aka double-endedd queue, is an ordered collection of items similar to the queue
+- aka double-ended queue, is an ordered collection of items similar to the queue
 - has two ends, front and rear, and the items remain positioned in the collection
+- unrestricted nature of adding and removing items
+    * new items can be added either at front or rear
+    * likewise, existing items can be removed from either end
+    * hybrid linear structure provides all the capabilities of stacks and queues in a single data structure
+    
