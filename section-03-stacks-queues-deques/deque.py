@@ -15,7 +15,7 @@ class Deque(object):
     def removeFront(self):
         return self.items.pop()
 
-    def removeRead(self):
+    def removeRear(self):
         return self.items.pop(0)
 
     def size(self):
