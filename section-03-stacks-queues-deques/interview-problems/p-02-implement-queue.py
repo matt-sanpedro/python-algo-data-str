@@ -18,7 +18,7 @@ class Queue(object):
         self.items.insert(0,item)
 
     def dequeue(self):
-        self.items.pop(0)
+        self.items.pop()
 
     def size(self):
         return len(self.items)
