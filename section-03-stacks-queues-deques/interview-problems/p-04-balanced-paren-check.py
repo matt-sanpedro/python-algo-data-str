@@ -8,35 +8,50 @@ Note: You can assume the input string has no spaces.
 '''
 # SOLUTION 1: O(n)
 def balance_check(s):
-    # initialize counters
-    square_count = 0
-    paren_count = 0
-    curly_count = 0
+    # initialize counter
+    count = 0
 
     for char in s:
         # print(char)
-        if '[' in char:
-            square_count += 1
-        elif ']' in char: 
-            square_count -= 1
-        elif '(' in char: 
-            paren_count += 1
-        elif ')' in char: 
-            paren_count -= 1
-        elif '{' in char: 
-            curly_count += 1
-        elif '}' in char: 
-            curly_count -= 1
+    
+        if char in ['(', '{', '[']:
+            count += 1
+        elif char in [')', '}', ']']:
+            count -= 1
 
-    if square_count==0 and paren_count==0 and curly_count==0:
-        return True
-    else:
-        return False
-
+    return count==0
 
 # print(balance_check('[]'))
 # print(balance_check('[](){([[[]]])}'))
 # print(balance_check('()(){]}'))
 
+# SOLUTION 2: Stacks
 def balance_check2(s):
-    pass
+    # edge case: if even number of brackets
+    if len(s)%2 != 0:
+        return False
+
+    opening = set('([{')
+    # print(opening)
+    matches = set([ ('(', ')'), ('[',']'), ('{','}') ])
+    # print(matches)
+    stack = []
+
+    for paren in s:
+        if paren in opening:
+            stack.append(paren)
+        else:
+            if len(stack) == 0:
+                return False
+            last_open = stack.pop()
+
+            if (last_open,paren) not in matches:
+                return False
+
+    return len(stack)==0
+
+print(balance_check('([)]'))
+print(balance_check2('([)]'))
+# print(balance_check2('[]'))
+# print(balance_check2('[](){([[[]]])}'))
+# print(balance_check2('()(){]}'))
