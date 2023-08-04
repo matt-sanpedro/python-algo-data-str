@@ -44,3 +44,24 @@
     * must be able to access node before the last node in order to remove last node
     * cannot reach node before tail by following next links from the tail
     *  to support operation efficiently, need to make our list "doubly linked"
+
+# Doubly Linked List
+- each node keeps an explicit reference to the node before and after it
+- greater variety of O(1)-time update operations, including insertions and deletions
+- __next__: reference to the node that follows another
+- __prev__: reference to the node that precedes it
+
+## Sentinel Node
+- special nodes are added at both ends of the list
+- __header__: node at the beginning of the list
+- __trailer__: node at the end of the list
+    * "dummy" nodes are known as sentinels (or guards)
+
+## Insertion
+- every insertion into doubly linked list will take place between a pair of existing nodes
+- when new element is inserted at front of sequence, add the new node between header and node currently after header
+
+## Deletion
+- two neighbors of the node to be deleted are linked directly to each other
+- as a result, node will no longer be considered part of the list and it can be reclaimed by system
+- placement of sentinels allows "two neighbors" implementation when deleting first or last element of a sequence
