@@ -4,6 +4,12 @@ Linked List Reversal
 Problem Statement:
 Write a function to reverse a Linked List in place. 
 The function will take in the head of the list as input and return the new head of the list.
+
+Implementation:
+- constant space complexity O(1)
+- linear time complexity O(n)
+- reverse list by changing the pointer of each node
+- copy current.nextnode into nextnode before setting current.nextnode to previous
 '''
 class Node(object):
 
